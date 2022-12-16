@@ -1,1 +1,58 @@
-<p>cours works!</p>
+<h1>Recherche d'un cours sur base de son intitule</h1>
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+  <ul class="navbar navbar-nav">
+    <li>
+      <form #f1="ngForm" (ngSubmit)="onSearchByIntitule(f1.value)">
+        <label>intitule du cours a rechercher</label>
+        <input type="text" ngModel name="intitule">
+        <button class="btn btn-sm btn-outline-info m-lg-2">
+          <span class = "fa fa-search"> </span>
+        </button>
+      </form>
+    </li>
+    <li>
+      <button (click)="onNewCours()" class="btn btn-sm btn-outline-info ms-2">New</button>
+    </li>
+  </ul>
+</nav>
+
+<ng-container *ngIf="cours">
+  <ng-container *ngIf="cours.length>0 else inconnu">
+    <table class="table">
+      <thead>
+        <th>IDCOURS</th>
+        <th>CODE</th>
+        <th>INTITULE</th>
+        <th>DELETE</th>
+        <th>EDIT</th>
+        <th>DETAILS</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let crs of cours">
+          <td>{{crs.idcours}}</td>
+          <td>{{crs.code}}</td>
+          <td>{{crs.intitule}}</td>
+          <td>
+            <button (click)=onDelete(crs) class="btn btn-danger">
+              <span class = "fa fa-trash-o"></span>
+            </button>
+          </td>
+          <td>
+            <button (click)=onEdit(crs) class="btn btn-danger">
+              <span class = "fa fa-edit"></span>
+            </button>
+          </td>
+          <td>
+            <button (click)=onDetails(crs) class="btn btn-danger">
+              <span class="fa fa-list"></span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+  <ng-template #inconnu>
+    Intitule inconnu
+  </ng-template>
+</ng-container>
+

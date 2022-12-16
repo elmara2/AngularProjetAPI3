@@ -10,6 +10,18 @@ import { ClassesComponent } from './components/classes/classes.component';
 import { EnseignantsComponent } from './components/enseignants/enseignants.component';
 import { HomeComponent } from './components/home/home.component';
 import {FormsModule} from "@angular/forms";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { EditclasseComponent } from './components/editclasse/editclasse.component';
+import { EditcoursComponent } from './components/editcours/editcours.component';
+import { EditenseignantComponent } from './components/editenseignant/editenseignant.component';
+import { EditsalleComponent } from './components/editsalle/editsalle.component';
+import { NewClasseComponent } from './components/new-classe/new-classe.component';
+import { NewCoursComponent } from './components/new-cours/new-cours.component';
+import { NewEnseignantComponent } from './components/new-enseignant/new-enseignant.component';
+import { NewSalleComponent } from './components/new-salle/new-salle.component';
+import { InfosComponent } from './components/infos/infos.component';
+import { EditinfosComponent } from './components/editinfos/editinfos.component';
+import { NewInfosComponent } from './components/new-infos/new-infos.component';
 
 @NgModule({
   declarations: [
@@ -19,11 +31,23 @@ import {FormsModule} from "@angular/forms";
     SallesComponent,
     EnseignantsComponent,
     ClassesComponent,
-    HomeComponent
+    HomeComponent,
+    EditclasseComponent,
+    EditcoursComponent,
+    EditenseignantComponent,
+    EditsalleComponent,
+    NewClasseComponent,
+    NewCoursComponent,
+    NewEnseignantComponent,
+    NewSalleComponent,
+    InfosComponent,
+    EditinfosComponent,
+    NewInfosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],
