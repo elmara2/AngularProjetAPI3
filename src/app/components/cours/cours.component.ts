@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Form} from "@angular/forms";
 import {Cours} from "../../entities/cours.entities";
 import {CoursService} from "../../services/cours.service";
@@ -12,7 +12,6 @@ import {Router} from "@angular/router";
 export class CoursComponent implements OnInit{
 
   cours?:Cours[];
-
   constructor(private coursService: CoursService,private router:Router) {
   }
   ngOnInit() : void {
@@ -45,8 +44,8 @@ export class CoursComponent implements OnInit{
     this.router.navigateByUrl('editCours/'+crs.idcours);
   }
 
-  onDetails(crs: Cours) {
-
+  onEnquete(crs: Cours) {
+    this.router.navigateByUrl('enqueteCours/'+crs.idcours);
   }
 
   onNewCours() {

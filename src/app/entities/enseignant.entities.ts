@@ -1,3 +1,5 @@
+import {Salle} from "./salle.entities";
+
 export interface Enseignant {
   idenseignant: number;
   matricule: string;
@@ -7,4 +9,5 @@ export interface Enseignant {
   chargesem:string;
   salairemensu:number;
   dateengag:Date;
+  salle:Salle;
 }

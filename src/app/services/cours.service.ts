@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {Cours} from "../entities/cours.entities";
 import {Classe} from "../entities/classe.entities";
 import {Injectable} from "@angular/core";
+import {Infos} from "../entities/infos.entities";
 
 @Injectable({providedIn:"root"})
 export class CoursService{
@@ -29,5 +30,13 @@ export class CoursService{
   }
   updateCours(cours:Cours):Observable<Cours>{
     return this.http.put<Cours>(this.host+"/cours/"+cours.idcours,cours);
+  }
+
+  searchInfos(idcours:number):Observable<Infos[]>{
+    return this.http.get<Infos[]>(this.host+"/cours/infosidcours="+idcours);
+  }
+
+  allCours():Observable<Cours[]>{
+    return this.http.get<Cours[]>(this.host+"/cours/all");
   }
 }

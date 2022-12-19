@@ -9,7 +9,7 @@ import { SallesComponent } from './components/salles/salles.component';
 import { ClassesComponent } from './components/classes/classes.component';
 import { EnseignantsComponent } from './components/enseignants/enseignants.component';
 import { HomeComponent } from './components/home/home.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { EditclasseComponent } from './components/editclasse/editclasse.component';
 import { EditcoursComponent } from './components/editcours/editcours.component';
@@ -22,6 +22,12 @@ import { NewSalleComponent } from './components/new-salle/new-salle.component';
 import { InfosComponent } from './components/infos/infos.component';
 import { EditinfosComponent } from './components/editinfos/editinfos.component';
 import { NewInfosComponent } from './components/new-infos/new-infos.component';
+import { EnquetesCoursComponent } from './components/enquetes-cours/enquetes-cours.component';
+import { EnquetesSalleComponent } from './components/enquetes-salle/enquetes-salle.component';
+import { InfosSalleComponent } from './components/infos-salle/infos-salle.component';
+import { InfosCoursComponent } from './components/infos-cours/infos-cours.component';
+import { InfosClasseComponent } from './components/infos-classe/infos-classe.component';
+import { InfosEnseignantComponent } from './components/infos-enseignant/infos-enseignant.component';
 
 @NgModule({
   declarations: [
@@ -42,13 +48,20 @@ import { NewInfosComponent } from './components/new-infos/new-infos.component';
     NewSalleComponent,
     InfosComponent,
     EditinfosComponent,
-    NewInfosComponent
+    NewInfosComponent,
+    EnquetesCoursComponent,
+    EnquetesSalleComponent,
+    InfosSalleComponent,
+    InfosCoursComponent,
+    InfosClasseComponent,
+    InfosEnseignantComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

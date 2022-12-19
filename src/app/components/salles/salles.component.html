@@ -1,1 +1,56 @@
-<p>salles works!</p>
+<h1>Recherche d'une salle sur base de son sigle</h1>
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+  <ul class="navbar navbar-nav">
+    <li>
+      <form #f1="ngForm" (ngSubmit)="onSearch(f1.value)">
+        <label>sigle du cours a rechercher</label>
+        <input type="text" ngModel name="sigle">
+        <button class="btn btn-sm btn-outline-info m-lg-2">
+          <span class = "fa fa-search"> </span>
+        </button>
+      </form>
+    </li>
+    <li>
+      <button (click)="onNewSalle()" class="btn btn-sm btn-outline-info ms-2">New</button>
+    </li>
+  </ul>
+</nav>
+
+
+  <ng-container *ngIf="salle">
+    <table class="table">
+      <thead>
+      <th>IDSALLE</th>
+      <th>SIGLE</th>
+      <th>CAPACITE</th>
+      <th>DELETE</th>
+      <th>EDIT</th>
+      <th>ENQUÊTES</th>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{salle.idsalle}}</td>
+        <td>{{salle.sigle}}</td>
+        <td>{{salle.capacite}}</td>
+        <td>
+          <button (click)=onDelete(salle) class="btn btn-danger">
+            <span class = "fa fa-trash-o"></span>
+          </button>
+        </td>
+        <td>
+          <button (click)=onEdit(salle) class="btn btn-danger">
+            <span class = "fa fa-edit"></span>
+          </button>
+        </td>
+        <td>
+          <button (click)=onEnquete(salle) class="btn btn-danger">
+            <span class="fa fa-list"></span>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </ng-container>
+  <ng-container *ngIf="salle===null">
+    Sigle inconnu
+  </ng-container>

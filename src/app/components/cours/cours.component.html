@@ -25,7 +25,7 @@
         <th>INTITULE</th>
         <th>DELETE</th>
         <th>EDIT</th>
-        <th>DETAILS</th>
+        <th>ENQUÊTES</th>
       </thead>
       <tbody>
         <tr *ngFor="let crs of cours">
@@ -43,7 +43,7 @@
             </button>
           </td>
           <td>
-            <button (click)=onDetails(crs) class="btn btn-danger">
+            <button (click)=onEnquete(crs) class="btn btn-danger">
               <span class="fa fa-list"></span>
             </button>
           </td>
