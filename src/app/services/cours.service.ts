@@ -39,4 +39,8 @@ export class CoursService{
   allCours():Observable<Cours[]>{
     return this.http.get<Cours[]>(this.host+"/cours/all");
   }
+
+  getInfosCours(cours:Cours):Observable<Infos[]>{
+    return this.http.get<Infos[]>(this.host+"/cours/infos/idcours="+cours.idcours);
+  }
 }

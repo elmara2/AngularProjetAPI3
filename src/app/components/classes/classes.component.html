@@ -1,36 +1,55 @@
-<form #f="ngForm" (ngSubmit)="onSearch(f.value)" class="form-inline">
-  <input ngModel name="idclasse" type="text" >
-  <button class="btn btn-sm btn-outline-info m-lg-2">
-<span class = "fa fa-search">
-</span>
-  </button>
-</form>
+<h2>Recherche d'une classe sur base de sa specialite</h2>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <ul class="navbar navbar-nav">
+    <li>
+      <form #f1="ngForm" (ngSubmit)="onSearch(f1.value)">
+        <label style="margin-right: 1em;">specialite de la classe :</label>
+        <input type="text" ngModel name="specialite">
+        <button class="btn btn-sm btn-outline-info m-lg-2">
+          <span class = "fa fa-search"> </span>
+        </button>
+      </form>
+    </li>
+    <li>
+      <button (click)="onNewClasse()" class="btn btn-sm btn-outline-info ms-2">New</button>
+    </li>
+  </ul>
+</nav>
 
 
-<ng-container *ngIf="classe else inconnu">
+<ng-container *ngIf="classes">
+  <ng-container *ngIf="classes.length>0 else inconnu">
     <table class="table">
       <thead>
-      <th>IdClient</th>
-      <th>Nom</th>
-      <th>Prenom</th>
-      <th>CP</th>
-      <th>Localite</th>
+      <th>IDCLASSE</th>
+      <th>SIGLE</th>
+      <th>ANNEE</th>
+      <th>SPECIALITE</th>
+      <th>NBREELEVES</th>
+      <th>DELETE</th>
+      <th>EDIT</th>
+      <th>ENQUÊTES</th>
       </thead>
       <tbody>
-      <tr>
-        <td>{{classe.idclasse}}</td>
-        <td>{{classe.annee}}</td>
-        <td>{{classe.nbreeleves}}</td>
-        <td>{{classe.sigle}}</td>
-        <td>{{classe.specialite}}</td>
+      <tr *ngFor="let cl of classes">
+        <td>{{cl.idclasse}}</td>
+        <td>{{cl.sigle}}</td>
+        <td>{{cl.annee}}</td>
+        <td>{{cl.specialite}}</td>
+        <td>{{cl.nbreeleves}}</td>
         <td>
-          <button class="btn btn-danger">
+          <button (click)=onDelete(cl) class="btn btn-danger">
             <span class = "fa fa-trash-o"></span>
           </button>
         </td>
         <td>
-          <button class="btn btn-danger">
+          <button (click)=onEdit(cl) class="btn btn-danger">
             <span class = "fa fa-edit"></span>
+          </button>
+        </td>
+        <td>
+          <button (click)=onEnquete(cl) class="btn btn-danger">
+            <span class="fa fa-list"></span>
           </button>
         </td>
       </tr>
@@ -38,6 +57,6 @@
     </table>
   </ng-container>
   <ng-template #inconnu>
-    Nom inconnu
+    specialite inconnu
   </ng-template>
-
+</ng-container>

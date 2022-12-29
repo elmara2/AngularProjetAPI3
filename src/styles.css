@@ -2,3 +2,44 @@
 @import "~font-awesome/css/font-awesome.min.css";
 @import "~bootstrap/dist/css/bootstrap.css";
 
+body{
+  background-image: url("https://ae01.alicdn.com/kf/S09ee2484c6bf4a92bad8f2bbecb74854M/Plafonnier-LED-Simple-et-cr-atif-clairage-d-int-rieur-luminaire-d-coratif-de-plafond-id.jpg_Q90.jpg_.webp");
+  background-size: cover;
+}
+h2{
+  margin-top: 1em;
+  font-style: italic;
+  text-align: center;
+}
+
+nav{
+  opacity: 0.7;
+  color: white;
+  text-align: center;
+}
+nav ul{
+  margin-left: 30%;
+}
+
+table{
+  text-align: center;
+  background-color: olive;
+}
+table th{
+  background-color: black;
+  color: white;
+
+}
+
+h3{
+  text-align: center;
+  background-color: black;
+  color: white;
+  opacity: 0.3;
+  font-weight: bold;
+}
+.btn-warning{
+  margin-left: 35%;
+}
+
+

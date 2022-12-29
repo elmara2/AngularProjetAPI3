@@ -12,6 +12,12 @@ import {EnquetesCoursComponent} from "./components/enquetes-cours/enquetes-cours
 import {EnquetesSalleComponent} from "./components/enquetes-salle/enquetes-salle.component";
 import {NewSalleComponent} from "./components/new-salle/new-salle.component";
 import {EditsalleComponent} from "./components/editsalle/editsalle.component";
+import {EditenseignantComponent} from "./components/editenseignant/editenseignant.component";
+import {NewEnseignantComponent} from "./components/new-enseignant/new-enseignant.component";
+import {EnquetesEnseignantComponent} from "./components/enquetes-enseignant/enquetes-enseignant.component";
+import {EditclasseComponent} from "./components/editclasse/editclasse.component";
+import {EnquetesClasseComponent} from "./components/enquetes-classe/enquetes-classe.component";
+import {NewClasseComponent} from "./components/new-classe/new-classe.component";
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -20,12 +26,19 @@ const routes: Routes = [
   {path:"enseignants",component:EnseignantsComponent},
   {path:"salles",component:SallesComponent},
   {path:"infos",component:InfosComponent},
+  {path:"newClasse",component:NewClasseComponent},
   {path:"newCours",component:NewCoursComponent},
   {path:"newSalle",component:NewSalleComponent},
+  {path:"newEnseignant",component:NewEnseignantComponent},
+  {path:"editClasse/:idclasse",component:EditclasseComponent},
   {path:"editSalle/:idsalle",component:EditsalleComponent},
   {path:"editCours/:idcours",component:EditcoursComponent},
+  {path:"editEnseignant/:idenseignant",component:EditenseignantComponent},
+  {path:"enqueteClasse/:idclasse",component:EnquetesClasseComponent},
   {path:"enqueteCours/:idcours",component:EnquetesCoursComponent},
-  {path:"enqueteSalle/:idsalle",component:EnquetesSalleComponent}
+  {path:"enqueteSalle/:idsalle",component:EnquetesSalleComponent},
+  {path:"enqueteEnseignant/:idenseignant",component:EnquetesEnseignantComponent}
+
 ];
 
 @NgModule({

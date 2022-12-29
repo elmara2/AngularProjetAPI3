@@ -1,9 +1,9 @@
-<h1>Recherche d'une salle sur base de son sigle</h1>
-<nav class="navbar navbar-expand-sm bg-light navbar-light">
+<h2>Recherche d'une salle sur base de son sigle</h2>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <ul class="navbar navbar-nav">
     <li>
       <form #f1="ngForm" (ngSubmit)="onSearch(f1.value)">
-        <label>sigle du cours a rechercher</label>
+        <label style="margin-right: 20px;">sigle de la salle :</label>
         <input type="text" ngModel name="sigle">
         <button class="btn btn-sm btn-outline-info m-lg-2">
           <span class = "fa fa-search"> </span>

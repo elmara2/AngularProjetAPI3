@@ -17,6 +17,10 @@ export class SalleService{
   getSalle(idsalle:number):Observable<Salle>{
     return this.http.get<Salle>(this.host+"/salles/"+idsalle);
   }
+  allSalles():Observable<Salle[]>{
+    return this.http.get<Salle[]>(this.host+"/salles/all");
+  }
+
   searchSalleUnique(sigle:string):Observable<Salle>{
     return this.http.get<Salle>(this.host+"/salles/sigle="+sigle);
   }
