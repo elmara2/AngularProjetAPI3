@@ -1,0 +1,136 @@
+
+  <h3>Salle</h3>
+  <ng-container *ngIf="sal">
+    <table class="table">
+      <thead>
+      <th>IDSALLE</th>
+      <th>SIGLE</th>
+      <th>CAPACITE</th>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{sal.idsalle}}</td>
+        <td>{{sal.sigle}}</td>
+        <td>{{sal.capacite}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </ng-container>
+  <ng-container *ngIf="sal===null">
+    salle inconnu
+  </ng-container>
+
+
+
+
+  <button (click)="onListEns()" class="btn btn-warning" >
+    liste des enseignants concernant cette salle
+  </button>
+<br>
+  <br>
+  <div>
+    <ng-container *ngIf="ensDeLaSalle">
+      <ng-container *ngIf="ensDeLaSalle.length>0 else inconnu">
+        <table class="table">
+          <thead>
+          <th>IDENSEIGNANT</th>
+          <th>MATRICULE</th>
+          <th>NOM</th>
+          <th>PRENOM</th>
+          <th>TEL</th>
+          <th>CHARGESEM</th>
+          <th>SALAIREMENSU</th>
+          <th>DATEENGAG</th>
+          <th>SUPPRIMER ?</th>
+          </thead>
+          <tbody>
+          <tr *ngFor="let ens of ensDeLaSalle">
+            <td>{{ens.idenseignant}}</td>
+            <td>{{ens.matricule}}</td>
+            <td>{{ens.nom}}</td>
+            <td>{{ens.prenom}}</td>
+            <td>{{ens.tel}}</td>
+            <td>{{ens.chargesem}}</td>
+            <td>{{ens.salairemensu}}</td>
+            <td>{{ens.dateengag}}</td>
+            <td><button (click)="onClickSupp(ens)" class="btn btn-info" >
+              supprimer
+            </button></td>
+          </tr>
+          </tbody>
+        </table>
+
+      </ng-container>
+      <ng-template #inconnu>
+        liste des enseignants de la salle introuvable
+      </ng-template>
+    </ng-container>
+
+    <br>
+
+    <div *ngIf="ensDeLaSalle">
+      <button (click)="onClickAdd()" class="btn btn-warning" >
+        ajouter un enseignants a cette salle
+      </button>
+      <br>
+      <br>
+      <ng-container *ngIf="allEns">
+        <ng-container *ngIf="allEns.length>0 else inconnu">
+          <table class="table">
+            <thead>
+            <th>IDENSEIGNANT</th>
+            <th>MATRICULE</th>
+            <th>NOM</th>
+            <th>PRENOM</th>
+            <th>TEL</th>
+            <th>CHARGESEM</th>
+            <th>SALAIREMENSU</th>
+            <th>DATEENGAG</th>
+            <th>AJOUTER ?</th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ens of allEns">
+              <td>{{ens.idenseignant}}</td>
+              <td>{{ens.matricule}}</td>
+              <td>{{ens.nom}}</td>
+              <td>{{ens.prenom}}</td>
+              <td>{{ens.tel}}</td>
+              <td>{{ens.chargesem}}</td>
+              <td>{{ens.salairemensu}}</td>
+              <td>{{ens.dateengag}}</td>
+              <td>
+                <button (click)="onAdd(ens)" class="btn btn-info">
+                  Ajouter
+                </button>
+
+              </td>
+
+            </tr>
+            </tbody>
+          </table>
+        </ng-container>
+        <ng-template #inconnu>
+          liste des enseignants de la salle introuvable
+        </ng-template>
+      </ng-container>
+
+      <br>
+
+      <button (click)="onInfos()" class="btn btn-warning" >
+         infos concernant la salle
+      </button>
+      <br><br>
+      <ng-container *ngIf="infosSal">
+        <app-infos-salle [infosSalle]="infosSal"></app-infos-salle>
+      </ng-container>
+    </div>
+
+  </div>
+
+
+  <br>
+  <br>
+  <button class="btn btn-dark" >
+    <a class="nav-link" routerLink="/salles">Retour</a>
+  </button>
+

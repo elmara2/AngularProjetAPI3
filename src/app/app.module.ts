@@ -21,7 +21,6 @@ import { NewEnseignantComponent } from './components/new-enseignant/new-enseigna
 import { NewSalleComponent } from './components/new-salle/new-salle.component';
 import { InfosComponent } from './components/infos/infos.component';
 import { EditinfosComponent } from './components/editinfos/editinfos.component';
-import { NewInfosComponent } from './components/new-infos/new-infos.component';
 import { EnquetesCoursComponent } from './components/enquetes-cours/enquetes-cours.component';
 import { EnquetesSalleComponent } from './components/enquetes-salle/enquetes-salle.component';
 import { InfosSalleComponent } from './components/infos-salle/infos-salle.component';
@@ -50,7 +49,6 @@ import { EnquetesClasseComponent } from './components/enquetes-classe/enquetes-c
     NewSalleComponent,
     InfosComponent,
     EditinfosComponent,
-    NewInfosComponent,
     EnquetesCoursComponent,
     EnquetesSalleComponent,
     InfosSalleComponent,

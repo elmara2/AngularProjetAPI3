@@ -1,0 +1,117 @@
+<div class="container">
+
+  <form [formGroup]="enseignantFormGroup" *ngIf="enseignantFormGroup">
+
+    <div class = "form-group">
+      <label>IDENSEIGNANT</label>
+      <input type ="text" class="form-control" value="{{idenseignant}}" readonly="readonly">
+    </div>
+
+    <div class = "form-group">
+      <label>MATRICULE</label>
+      <input type ="text" class="form-control"
+             formControlName="matricule"
+             [ngClass]="{'is-invalid': submitted &&
+enseignantFormGroup.controls.matricule.errors}">
+      <div *ngIf="submitted &&
+enseignantFormGroup.controls.matricule.errors" class ="invalid-feedback">
+        <div *ngIf="enseignantFormGroup.controls.matricule.errors.required">
+          matricule obligatoire
+        </div>
+      </div>
+    </div>
+    <div class = "form-group">
+      <label>Nom</label>
+      <input type ="text" class="form-control" formControlName="nom"
+             [ngClass]="{'is-invalid': submitted &&
+enseignantFormGroup.controls.nom.errors}">
+      <div *ngIf="submitted && enseignantFormGroup.controls.nom.errors" class
+        ="invalid-feedback">
+        <div *ngIf="enseignantFormGroup.controls.nom.errors.required">
+          Nom obligatoire
+        </div>
+      </div>
+    </div>
+    <div class = "form-group">
+      <label>Prénom</label>
+      <input type ="text" class="form-control" formControlName="prenom"
+             [ngClass]="{'is-invalid': submitted &&
+enseignantFormGroup.controls.prenom.errors}">
+      <div *ngIf="submitted && enseignantFormGroup.controls.prenom.errors"
+           class ="invalid-feedback">
+        <div *ngIf="enseignantFormGroup.controls.prenom.errors.required">
+          Prénom obligatoire
+        </div>
+      </div>
+    </div>
+    <div class = "form-group">
+      <label>Tel</label>
+      <input type ="text" class="form-control" formControlName="tel"
+             [ngClass]="{'is-invalid': submitted &&
+enseignantFormGroup.controls.tel.errors}">
+      <div *ngIf="submitted && enseignantFormGroup.controls.tel.errors" class
+        ="invalid-feedback">
+        <div *ngIf="enseignantFormGroup.controls.tel.errors.required">
+          Téléphone obligatoire
+        </div>
+      </div>
+    </div>
+    <div class = "form-group">
+      <label>ChargeSem</label>
+      <input type ="text" class="form-control"
+             formControlName="chargesem"
+             [ngClass]="{'is-invalid': submitted &&
+enseignantFormGroup.controls.chargesem.errors}">
+      <div *ngIf="submitted &&
+enseignantFormGroup.controls.chargesem.errors" class ="invalid-feedback">
+        <div *ngIf="enseignantFormGroup.controls.chargesem.errors.required">
+          ChargeSem obligatoire
+        </div>
+        <div *ngIf="enseignantFormGroup.controls.chargesem.errors.min">
+          la charge doit être supérieur ou égal à 1
+        </div>
+      </div>
+    </div>
+    <div class = "form-group">
+      <label>Salaire</label>
+      <input type ="text" class="form-control"
+             formControlName="salairemensu"
+             [ngClass]="{'is-invalid': submitted &&
+enseignantFormGroup.controls.salairemensu.errors}">
+      <div *ngIf="submitted &&
+enseignantFormGroup.controls.salairemensu.errors" class ="invalid-feedback">
+        <div *ngIf="enseignantFormGroup.controls.salairemensu.errors.required">
+          salaire obligatoire
+        </div>
+        <div *ngIf="enseignantFormGroup.controls.salairemensu.errors.min">
+          le salaire doit être supérieur ou égal à 1
+        </div>
+      </div>
+    </div>
+    <div class = "form-group">
+      <label>Date d'engagement</label>
+      <input type ="date" class="form-control"
+             formControlName="dateengag"
+             [ngClass]="{'is-invalid': submitted &&
+enseignantFormGroup.controls.dateengag.errors}">
+      <div *ngIf="submitted &&
+enseignantFormGroup.controls.dateengag.errors" class ="invalid-feedback">
+        <div *ngIf="enseignantFormGroup.controls.dateengag.errors.required">
+          Date obligatoire
+        </div>
+      </div>
+    </div>
+  <br>
+    <button (click)="onSaveEnseignant()" class="btn btn-success" >
+      Save
+    </button>
+  </form>
+</div>
+
+<br>
+<br>
+<button class="btn btn-dark" >
+  <a class="nav-link" routerLink="/enseignants">Retour</a>
+</button>
+<br>
+<br>

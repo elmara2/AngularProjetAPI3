@@ -25,9 +25,19 @@ export class InfosService{
   updateInfos(infos:Infos):Observable<Infos>{
     return this.http.put<Infos>(this.host+"/infos/idcl="+infos.classe.idclasse+"/idcrs="+infos.cours.idcours,infos);
   }
+  updateEnseignant(infos:Infos,enseignant:Enseignant):Observable<Infos>{
+    return this.http.put<Infos>(this.host+"/infos/idcl="+infos.classe.idclasse+"/idcrs="+infos.cours.idcours+"/idens="+enseignant.idenseignant,infos);
+  }
+
+  updateSalle(infos:Infos,salle:Salle):Observable<Infos>{
+    return this.http.put<Infos>(this.host+"/infos/idcl="+infos.classe.idclasse+"/idcrs="+infos.cours.idcours+"/idsal="+salle.idsalle,infos);
+  }
 
   getInfosSalle(sal:Salle):Observable<Infos[]>{
     return this.http.get<Infos[]>(this.host+"/salles/infos/idsalle="+sal.idsalle);
   }
 
+  updateNbreHeure(infos: Infos, n: number) {
+    return this.http.put<Infos>(this.host+"/infos/idcl="+infos.classe.idclasse+"/idcrs="+infos.cours.idcours+"/n="+n,infos);
+  }
 }

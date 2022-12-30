@@ -1,0 +1,36 @@
+<h3>Cours</h3>
+<ng-container *ngIf="crs">
+  <table class="table">
+    <thead>
+    <th>IDCOURS</th>
+    <th>CODE</th>
+    <th>INTITULE</th>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{crs.idcours}}</td>
+      <td>{{crs.code}}</td>
+      <td>{{crs.intitule}}</td>
+    </tr>
+    </tbody>
+  </table>
+</ng-container>
+<ng-container *ngIf="crs===null">
+  cours inconnu
+</ng-container>
+
+
+<button (click)="onInfos()" class="btn btn-warning" >
+   infos concernant le cours
+</button>
+<br><br>
+<ng-container *ngIf="infosCours">
+  <app-infos-cours [infosCours]="infosCours"></app-infos-cours>
+</ng-container>
+<br>
+<br>
+<button class="btn btn-dark" >
+  <a class="nav-link" routerLink="/cours">Retour</a>
+</button>
+<br>
+<br>

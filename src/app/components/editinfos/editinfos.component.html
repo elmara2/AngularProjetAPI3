@@ -1,0 +1,146 @@
+<div class="container" *ngIf="deleted == false">
+  <form [formGroup]="infosFormGroup" *ngIf="infosFormGroup">
+    <div class = "form-group">
+      <label>idclasse</label>
+      <input type ="text" class="form-control"
+             formControlName="idclasse" readonly>
+      <label>idcours</label>
+      <input type ="text" class="form-control"
+             formControlName="idcours" readonly>
+    </div>
+
+  </form>
+</div>
+
+<div *ngIf="infos">
+  <h3>Nombre heure</h3>
+  <ng-container *ngIf="infos.nbreheures">
+    <table>
+      <thead>
+      <th>NOMBRE HEURES</th>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{infos.nbreheures}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </ng-container>
+  <ng-container *ngIf="infos.nbreheures===null">
+    <p style="text-align: center;">nombre heure inconnu</p>
+  </ng-container>
+
+  <p style="text-align: center;color: black;font-weight: bold">entrer le nombre d'heure que vous souhaitez </p>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar navbar-nav">
+      <li>
+        <form #f2="ngForm" (ngSubmit)="onUpdateNbreHeures(f2.value)">
+          <label style="margin-right: 1em;">ID de la salle :</label>
+          <input type="text" ngModel name="nbreheures">
+          <button class="btn btn-sm btn-outline-info m-lg-2">
+            valider
+          </button>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div>
+
+  <div *ngIf="infos">
+    <h3>Enseignant</h3>
+    <ng-container *ngIf="infos.enseignant">
+      <table class="table">
+        <thead>
+        <th>IDENSEIGNANT</th>
+        <th>MATRICULE</th>
+        <th>NOM</th>
+        <th>PRENOM</th>
+        <th>TEL</th>
+        <th>CHARGESEM</th>
+        <th>SALAIREMENSU</th>
+        <th>DATEENGAG</th>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{infos.enseignant.idenseignant}}</td>
+          <td>{{infos.enseignant.matricule}}</td>
+          <td>{{infos.enseignant.nom}}</td>
+          <td>{{infos.enseignant.prenom}}</td>
+          <td>{{infos.enseignant.tel}}</td>
+          <td>{{infos.enseignant.chargesem}}</td>
+          <td>{{infos.enseignant.salairemensu}}</td>
+          <td>{{infos.enseignant.dateengag}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </ng-container>
+    <ng-container *ngIf="infos.enseignant===null" style="text-align: center;">
+      <p style="text-align: center;">enseignant inconnu</p>
+    </ng-container>
+
+    <p style="text-align: center;color: black;font-weight: bold">entrez l'id de l'enseignant si vous souhaiter modifier l'enseignant ?</p>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <ul class="navbar navbar-nav">
+        <li>
+          <form #f1="ngForm" (ngSubmit)="onSearchEns(f1.value)">
+            <label style="margin-right: 1em;">ID de l'enseignant :</label>
+            <input type="text" ngModel name="idenseignant">
+            <button class="btn btn-sm btn-outline-info m-lg-2">
+              valider
+            </button>
+          </form>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+
+
+
+
+  <div *ngIf="infos">
+
+
+    <h3>Salle</h3>
+    <ng-container *ngIf="infos.salle">
+      <table class="table">
+        <thead>
+        <th>IDSALLE</th>
+        <th>SIGLE</th>
+        <th>CAPACITE</th>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{infos.salle.idsalle}}</td>
+          <td>{{infos.salle.sigle}}</td>
+          <td>{{infos.salle.capacite}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </ng-container>
+    <ng-container *ngIf="infos.salle===null">
+      <p style="text-align: center;">salle inconnu</p>
+    </ng-container>
+
+    <p style="text-align: center;color: black;font-weight: bold">entrer l'id de la salle si vous souhaitez modifier la salle </p>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <ul class="navbar navbar-nav">
+        <li>
+          <form #f2="ngForm" (ngSubmit)="onSearchSal(f2.value)">
+            <label style="margin-right: 1em;">ID de la salle :</label>
+            <input type="text" ngModel name="idsalle">
+            <button class="btn btn-sm btn-outline-info m-lg-2">
+              valider
+            </button>
+          </form>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+

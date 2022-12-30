@@ -42,4 +42,10 @@ h3{
   margin-left: 35%;
 }
 
-
+.inf{
+  padding: 20px;
+  background-color: black;
+  opacity: 0.5;
+  color: white;
+  font-weight: bold;
+}

@@ -1,0 +1,118 @@
+<h3>Enseignant</h3>
+<ng-container *ngIf="ens">
+  <table class="table">
+    <thead>
+    <th>IDENSEIGNANT</th>
+    <th>MATRICULE</th>
+    <th>NOM</th>
+    <th>PRENOM</th>
+    <th>TEL</th>
+    <th>CHARGESEM</th>
+    <th>SALAIREMENSU</th>
+    <th>DATEENGAG</th>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{ens.idenseignant}}</td>
+      <td>{{ens.matricule}}</td>
+      <td>{{ens.nom}}</td>
+      <td>{{ens.prenom}}</td>
+      <td>{{ens.tel}}</td>
+      <td>{{ens.chargesem}}</td>
+      <td>{{ens.salairemensu}}</td>
+      <td>{{ens.dateengag}}</td>
+    </tr>
+    </tbody>
+  </table>
+</ng-container>
+<ng-container *ngIf="ens===null">
+  enseignant inconnu
+</ng-container>
+
+
+
+
+<button (click)="onSalle()" class="btn btn-warning" >
+  salle de l'enseignant
+</button>
+<br><br>
+<div>
+  <ng-container *ngIf="salleDeEnsg">
+    <table class="table">
+      <thead>
+      <th>IDSALLE</th>
+      <th>SIGLE</th>
+      <th>CAPACITE</th>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{salleDeEnsg.idsalle}}</td>
+        <td>{{salleDeEnsg.sigle}}</td>
+        <td>{{salleDeEnsg.capacite}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </ng-container>
+  <ng-container *ngIf="salleDeEnsg===null">
+      salle de l'enseignant introuvable
+  </ng-container>
+
+<br>
+
+
+  <button (click)="onListeSalle()" class="btn btn-warning" >
+    modifier sa salle
+  </button>
+<br><br>
+  <ng-container *ngIf="allSalle">
+    <ng-container *ngIf="allSalle.length>0 else inconnu">
+      <table class="table">
+        <thead>
+        <th>IDSALLE</th>
+        <th>SIGLE</th>
+        <th>CAPACITE</th>
+        <th>Choix de la salle</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let sal of allSalle">
+          <td>{{sal.idsalle}}</td>
+          <td>{{sal.sigle}}</td>
+          <td>{{sal.capacite}}</td>
+          <td>
+            <input type="radio" name="choix" (click)="choixSalle(sal)">
+          </td>
+
+        </tr>
+        </tbody>
+      </table>
+      <button (click)="onUpdate()" class="btn btn-info" style="margin-left: 43%;">
+        valider le choix
+      </button>
+    </ng-container>
+    <ng-template #inconnu>
+      liste des salles introuvable
+    </ng-template>
+  </ng-container>
+</div>
+<br>
+<button (click)="onInfos()" class="btn btn-warning" >
+  infos concernant l'enseignant
+</button>
+<br><br>
+<ng-container *ngIf="infosEns">
+  <app-infos-enseignant [infosEnseignant]="infosEns"></app-infos-enseignant>
+</ng-container>
+
+
+<br>
+<br>
+<button class="btn btn-dark" >
+  <a class="nav-link" routerLink="/enseignants">Retour</a>
+</button>
+<br>
+<br>
+
+
+
+

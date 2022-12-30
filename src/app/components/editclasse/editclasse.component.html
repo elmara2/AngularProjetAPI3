@@ -1,0 +1,86 @@
+<div class="container" *ngIf="deleted == false">
+  <form [formGroup]="classeFormGroup" *ngIf="classeFormGroup">
+    <div class = "form-group">
+      <label>IDCLASSE</label>
+      <input type ="text" class="form-control"
+             formControlName="idclasse" readonly>
+    </div>
+    <div class = "form-group">
+      <label>SIGLE</label>
+      <input type ="text" class="form-control"
+             formControlName="sigle"
+             [ngClass]="{'is-invalid': submitted &&
+classeFormGroup.controls.sigle.errors}">
+      <div *ngIf="submitted &&
+classeFormGroup.controls.sigle.errors" class ="invalid-feedback">
+        <div *ngIf="classeFormGroup.controls.sigle.errors.required">
+          sigle obligatoire
+        </div>
+      </div>
+    </div>
+    <div class = "form-group">
+      <label>ANNEE</label>
+      <input type ="text" class="form-control" formControlName="annee"
+             [ngClass]="{'is-invalid': submitted &&
+classeFormGroup.controls.annee.errors}">
+      <div *ngIf="submitted && classeFormGroup.controls.annee.errors" class
+        ="invalid-feedback">
+        <div *ngIf="classeFormGroup.controls.annee.errors.required">
+          Annee obligatoire
+        </div>
+        <div *ngIf="classeFormGroup.controls.annee.errors.min">
+          l'annee doit être supérieur ou égal à 1
+        </div>
+        <div *ngIf="classeFormGroup.controls.annee.errors.max">
+          l'annee doit être inferieure ou égal à 7
+        </div>
+
+      </div>
+    </div>
+    <div class = "form-group">
+      <label>Spécialité</label>
+      <input type ="text" class="form-control" formControlName="specialite"
+             [ngClass]="{'is-invalid': submitted &&
+classeFormGroup.controls.specialite.errors}">
+      <div *ngIf="submitted && classeFormGroup.controls.specialite.errors"
+           class ="invalid-feedback">
+        <div *ngIf="classeFormGroup.controls.specialite.errors.required">
+          Spécialité obligatoire
+        </div>
+      </div>
+    </div>
+    <div class = "form-group">
+      <label>Nombre d'élèves</label>
+      <input type ="text" class="form-control" formControlName="nbreeleves"
+             [ngClass]="{'is-invalid': submitted &&
+classeFormGroup.controls.nbreeleves.errors}">
+      <div *ngIf="submitted && classeFormGroup.controls.nbreeleves.errors" class
+        ="invalid-feedback">
+        <div *ngIf="classeFormGroup.controls.nbreeleves.errors.required">
+          Nombre d'élèves obligatoire
+        </div>
+        <div *ngIf="classeFormGroup.controls.nbreeleves.errors.min">
+          le nombre d'eleves doit être supérieur ou égal à 1
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <ul class="navbar navbar-nav">
+        <li class="nav-item">
+          <button (click)="onUpdateClasse()" class="btn btn-success" style="margin-left: 120px;">
+            Save
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </form>
+</div>
+
+<br>
+<br>
+<button class="btn btn-dark" >
+  <a class="nav-link" routerLink="/classes">Retour</a>
+</button>
+<br>
+<br>

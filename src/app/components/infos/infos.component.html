@@ -1,0 +1,13 @@
+<h2>Recherche d'une infos sur base de ses identifiants</h2>
+<form (ngSubmit)="onSearch()" class="form-inline inf">
+  <label style="margin-left: 19em;margin-right: 1em;">idclasse :</label>
+  <input [(ngModel)]="idclasse" name="idclasse" type="text" >
+  <label style="margin-right: 1em;margin-left: 1em;">idcours :</label>
+  <input [(ngModel)]="idcours" name="idcours" type="text" >
+  <button class="btn btn-sm btn-outline-info m-lg-2">
+    <span class = "fa fa-search"> </span>
+  </button>
+</form>
+<ng-container *ngIf="infos">
+  <app-editinfos [infos] ="infos" (newEns)="onNewEns($event)" (newSal)="onNewSal($event)" (nbreheureInf)="onNewNbreHeure($event)"></app-editinfos>
+</ng-container>

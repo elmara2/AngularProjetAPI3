@@ -1,0 +1,31 @@
+<h3>Classe</h3>
+<ng-container *ngIf="cl">
+  <table class="table">
+    <thead>
+    <th>IDCLASSE</th>
+    <th>SIGLE</th>
+    <th>ANNEE</th>
+    <th>SPECIALITE</th>
+    <th>NBREELEVES</th>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{cl.idclasse}}</td>
+      <td>{{cl.sigle}}</td>
+      <td>{{cl.annee}}</td>
+      <td>{{cl.specialite}}</td>
+      <td>{{cl.nbreeleves}}</td>
+    </tr>
+    </tbody>
+  </table>
+</ng-container>
+<ng-container *ngIf="cl===null">
+  classe inconnu
+</ng-container>
+
+<button (click)="onInfos()" class="btn btn-success" >
+   infos concernant la classe
+</button>
+<ng-container *ngIf="infosClasse">
+  <app-infos-classe [infosClasse]="infosClasse"></app-infos-classe>
+</ng-container>

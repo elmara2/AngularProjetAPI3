@@ -1,0 +1,62 @@
+
+<ng-container *ngIf="infosSalle">
+  <ng-container *ngIf="infosSalle.length>0 else inconnu">
+
+    <table class="table">
+      <thead>
+      <th>ENSEIGNANTS</th>
+      <th>CLASSES</th>
+      <th>COURS</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let inf of infosSalle">
+
+        <td>
+          <div *ngIf="inf.enseignant">
+            idenseignant : {{inf.enseignant.idenseignant}}<br>
+            matricule : {{inf.enseignant.matricule}}<br>
+            nom : {{inf.enseignant.nom}}<br>
+            prenom : {{inf.enseignant.prenom}}<br>
+            tel : {{inf.enseignant.tel}}<br>
+            chargesem : {{inf.enseignant.chargesem}}<br>
+            salairemensu : {{inf.enseignant.salairemensu}}<br>
+            dateengag : {{inf.enseignant.dateengag}}
+          </div>
+          <div *ngIf="inf.enseignant==null">
+            INCONNU
+          </div>
+        </td>
+
+        <td>
+          <div *ngIf="inf.classe">
+            idclasse : {{inf.classe.idclasse}}<br>
+            sigle : {{inf.classe.sigle}}<br>
+            annee : {{inf.classe.annee}}<br>
+            specialite : {{inf.classe.specialite}}<br>
+            nbreeleves : {{inf.classe.nbreeleves}}
+          </div>
+          <div *ngIf="inf.classe==null">
+            INCONNU
+          </div>
+        </td>
+
+        <td>
+          <div *ngIf="inf.cours">
+            idcours : {{inf.cours.idcours}}<br>
+            code : {{inf.cours.code}}<br>
+            intitule : {{inf.cours.intitule}}
+          </div>
+          <div *ngIf="inf.cours==null">
+            INCONNU
+          </div>
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+
+  </ng-container>
+  <ng-template #inconnu>
+    INCONNU
+  </ng-template>
+</ng-container>
