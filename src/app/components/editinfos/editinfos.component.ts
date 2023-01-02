@@ -15,7 +15,6 @@ import {SalleService} from "../../services/salle.service";
 export class EditinfosComponent implements OnInit{
   infosFormGroup?: FormGroup;
   submitted=false;
-  click=false;
   @Input() infos?:Infos;
   @Output() newEns=new EventEmitter<Enseignant>();
   @Output() newSal=new EventEmitter<Salle>();
@@ -58,10 +57,6 @@ export class EditinfosComponent implements OnInit{
       data => {this.newSal.emit(data);},
       err => {alert(err.headers.get("error"))}
     )
-  }
-
-  onClick() {
-    this.click=true;
   }
 
   onUpdateNbreHeures(value:any) {
