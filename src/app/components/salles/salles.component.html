@@ -17,7 +17,66 @@
 </nav>
 
 
-  <ng-container *ngIf="salle">
+<ng-container *ngIf="salle">
+  <table class="table">
+    <thead>
+    <th>IDSALLE</th>
+    <th>SIGLE</th>
+    <th>CAPACITE</th>
+    <th>DELETE</th>
+    <th>EDIT</th>
+    <th>ENQUÊTES</th>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{salle.idsalle}}</td>
+      <td>{{salle.sigle}}</td>
+      <td>{{salle.capacite}}</td>
+      <td>
+        <button (click)=onDelete(salle) class="btn btn-danger">
+          <span class = "fa fa-trash-o"></span>
+        </button>
+      </td>
+      <td>
+        <button (click)=onEdit(salle) class="btn btn-danger">
+          <span class = "fa fa-edit"></span>
+        </button>
+      </td>
+      <td>
+        <button (click)=onEnquete(salle) class="btn btn-danger">
+          <span class="fa fa-list"></span>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</ng-container>
+<ng-container *ngIf="salle===null">
+  Sigle inconnu
+</ng-container>
+
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <ul class="navbar navbar-nav">
+    <li>
+      <form #f2="ngForm" (ngSubmit)="onSearchByCapacity(f2.value)">
+        <label style="margin-right: 20px;">capacité de la salle :</label>
+        <input type="text" ngModel name="capacite">
+        <button class="btn btn-sm btn-outline-info m-lg-2">
+          <span class = "fa fa-search"> </span>
+        </button>
+      </form>
+    </li>
+    <li>
+      <button (click)="onNewSalle()" class="btn btn-sm btn-outline-info ms-2">New</button>
+    </li>
+  </ul>
+</nav>
+
+
+
+<ng-container *ngIf="lsal">
+  <ng-container *ngIf="lsal.length>0 else inconnu">
     <table class="table">
       <thead>
       <th>IDSALLE</th>
@@ -28,22 +87,22 @@
       <th>ENQUÊTES</th>
       </thead>
       <tbody>
-      <tr>
-        <td>{{salle.idsalle}}</td>
-        <td>{{salle.sigle}}</td>
-        <td>{{salle.capacite}}</td>
+      <tr *ngFor="let sal of lsal">
+        <td>{{sal.idsalle}}</td>
+        <td>{{sal.sigle}}</td>
+        <td>{{sal.capacite}}</td>
         <td>
-          <button (click)=onDelete(salle) class="btn btn-danger">
+          <button (click)=onDelete(sal) class="btn btn-danger">
             <span class = "fa fa-trash-o"></span>
           </button>
         </td>
         <td>
-          <button (click)=onEdit(salle) class="btn btn-danger">
+          <button (click)=onEdit(sal) class="btn btn-danger">
             <span class = "fa fa-edit"></span>
           </button>
         </td>
         <td>
-          <button (click)=onEnquete(salle) class="btn btn-danger">
+          <button (click)=onEnquete(sal) class="btn btn-danger">
             <span class="fa fa-list"></span>
           </button>
         </td>
@@ -51,6 +110,11 @@
       </tbody>
     </table>
   </ng-container>
-  <ng-container *ngIf="salle===null">
-    Sigle inconnu
-  </ng-container>
+  <ng-template #inconnu>
+    nom inconnu
+  </ng-template>
+</ng-container>
+
+
+
+

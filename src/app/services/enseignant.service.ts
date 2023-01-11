@@ -48,4 +48,8 @@ export class EnseignantService{
   getInfosEnseignant(enseignant:Enseignant):Observable<Infos[]>{
     return this.http.get<Infos[]>(this.host+"/enseignants/infos/idens="+enseignant.idenseignant);
   }
+
+  searchSalleEnsgNom(nom: String) : Observable<Salle[]> {
+    return this.http.get<Salle[]>(this.host+"/enseignants/nom="+nom+"/sal");
+  }
 }

@@ -29,6 +29,7 @@ import { InfosClasseComponent } from './components/infos-classe/infos-classe.com
 import { InfosEnseignantComponent } from './components/infos-enseignant/infos-enseignant.component';
 import { EnquetesEnseignantComponent } from './components/enquetes-enseignant/enquetes-enseignant.component';
 import { EnquetesClasseComponent } from './components/enquetes-classe/enquetes-classe.component';
+import { ExamenComponent } from './components/examen/examen.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { EnquetesClasseComponent } from './components/enquetes-classe/enquetes-c
     InfosClasseComponent,
     InfosEnseignantComponent,
     EnquetesEnseignantComponent,
-    EnquetesClasseComponent
+    EnquetesClasseComponent,
+    ExamenComponent
   ],
   imports: [
     BrowserModule,

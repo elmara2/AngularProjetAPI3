@@ -18,6 +18,7 @@ import {EnquetesEnseignantComponent} from "./components/enquetes-enseignant/enqu
 import {EditclasseComponent} from "./components/editclasse/editclasse.component";
 import {EnquetesClasseComponent} from "./components/enquetes-classe/enquetes-classe.component";
 import {NewClasseComponent} from "./components/new-classe/new-classe.component";
+import {ExamenComponent} from "./components/examen/examen.component";
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path:"cours",component:CoursComponent},
   {path:"enseignants",component:EnseignantsComponent},
   {path:"salles",component:SallesComponent},
+  {path:"examen",component:ExamenComponent},
   {path:"infos",component:InfosComponent},
   {path:"newClasse",component:NewClasseComponent},
   {path:"newCours",component:NewCoursComponent},

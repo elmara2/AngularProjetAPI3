@@ -53,4 +53,5 @@ export class SalleService{
     return this.http.get<Infos[]>(this.host+"/salles/infos/idsalle="+sal.idsalle);
   }
 
+
 }

@@ -13,6 +13,7 @@ import {SalleService} from "../../services/salle.service";
 export class SallesComponent {
 
   salle?:Salle;
+  lsal?:Salle[];
   constructor(private salleService: SalleService,private router:Router) {
   }
   ngOnInit() : void {
@@ -21,6 +22,12 @@ export class SallesComponent {
   onSearch(value:any){
     this.salleService.searchSalleUnique(value.sigle).subscribe(
       data => {this.salle=data}
+    )
+  }
+
+  onSearchByCapacity(value: any) {
+    this.salleService.searchSalleCapacity(value.capacite).subscribe(
+      data => {this.lsal=data}
     )
   }
 
@@ -52,4 +59,6 @@ export class SallesComponent {
   onNewSalle() {
     this.router.navigateByUrl('newSalle');
   }
+
+
 }

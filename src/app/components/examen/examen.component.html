@@ -1,0 +1,40 @@
+<h2>Recherche des salles d'un enseignant sur base du début de son nom</h2>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <ul class="navbar navbar-nav">
+    <li>
+      <form #f1="ngForm" (ngSubmit)="onSearch(f1.value)">
+        <label style="margin-right: 1em;">nom de l'enseignant :</label>
+        <input type="text" ngModel name="nom">
+        <button class="btn btn-sm btn-outline-info m-lg-2">
+          <span class = "fa fa-search"> </span>
+        </button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+
+
+<ng-container *ngIf="salles">
+  <ng-container *ngIf="salles.length>0 else inconnu">
+
+    <table class="table">
+      <thead>
+      <th>IDSALLE</th>
+      <th>SIGLE</th>
+      <th>CAPACITE</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let sal of salles">
+        <td>{{sal.idsalle}}</td>
+        <td>{{sal.sigle}}</td>
+        <td>{{sal.capacite}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </ng-container>
+  <ng-template #inconnu>
+    INCONNU
+  </ng-template>
+</ng-container>
